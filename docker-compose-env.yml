@@ -1,4 +1,4 @@
-version: "3"
+version: "2"
 
 services:
   chirpstack-network-server:
@@ -39,7 +39,7 @@ services:
     environment:
       - POSTGRES_PASSWORD=root 
     volumes:
-      - ./configuration/postgresql/initdb:/docker-entrypoint-initdb.d
+      - initdb:/docker-entrypoint-initdb.d
       - postgresqldata:/var/lib/postgresql/data
 
   redis:
@@ -55,3 +55,4 @@ services:
 volumes:
   postgresqldata:
   redisdata:
+  initdb:
